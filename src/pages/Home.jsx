@@ -1,3 +1,5 @@
+// At the top of Home.jsx
+import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { FiDownload, FiMail, FiGithub, FiLinkedin, FiTwitter } from 'react-icons/fi'
@@ -18,6 +20,14 @@ import { SiVuedotjs } from "react-icons/si";
 import { RiReactjsLine } from "react-icons/ri";
 
 export default function Home() {
+
+  const navigate = useNavigate();
+
+// Replace all window.location.href with:
+  const handleNavigation = (path) => {
+    navigate(path);
+  }
+
   const [ref, inView] = useInView({
     threshold: 0.5,
     triggerOnce: true
@@ -132,7 +142,7 @@ export default function Home() {
               <div className="flex flex-wrap gap-4">
                 <MagneticButton>
                   <button
-                    onClick={() => window.location.href = '/contact'}
+                    onClick={() => handleNavigation('/contact')}
                     className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-full text-lg font-medium transition-all duration-300 flex items-center gap-2 shadow-lg hover:shadow-xl"
                   >
                     <FiMail className="text-xl" />
@@ -233,15 +243,15 @@ export default function Home() {
               </div>
             </div>
             <div className="mt-6 text-right">
-              <a
-                href="/about"
-                className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors duration-300 font-medium"
-              >
-                More About Me
-                <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </a>
+            <button
+              onClick={() => handleNavigation('/about')}
+              className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors duration-300 font-medium"
+            >
+              More About Me
+              <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </button>
             </div>
           </motion.section>
 
@@ -271,15 +281,15 @@ export default function Home() {
               </div>
             </div>
             <div className="mt-6 text-right">
-              <a
-                href="/experience"
-                className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors duration-300 font-medium"
-              >
-                View Full Experience
-                <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </a>
+            <button
+              onClick={() => handleNavigation('/experience')}
+              className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors duration-300 font-medium"
+            >
+              View Full Experience
+              <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </button>
             </div>
           </motion.section>
 
@@ -395,15 +405,15 @@ export default function Home() {
               ))}
             </div>
             <div className="mt-8 text-right">
-              <a
-                href="/projects"
-                className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors duration-300 font-medium"
-              >
-                Explore All Projects
-                <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </a>
+            <button
+              onClick={() => handleNavigation('/projects')}
+              className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors duration-300 font-medium"
+            >
+              Explore All Projects
+              <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </button>
             </div>
           </motion.section>
         </div>
@@ -426,7 +436,7 @@ export default function Home() {
       <Sparkles>
         <MagneticButton>
           <button
-            onClick={() => window.location.href = '/contact'}
+            onClick={() => handleNavigation('/contact')}
             className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-full text-lg font-medium transition-all duration-300 flex items-center gap-2 shadow-lg hover:shadow-xl"
           >
             <FiMail className="text-xl" />

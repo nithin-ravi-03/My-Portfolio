@@ -9,7 +9,6 @@ import Contact from './pages/Contact'
 
 export default function App() {
   const [darkMode, setDarkMode] = useState(() => {
-    // Check local storage or system preference
     return localStorage.getItem('darkMode') === 'true' || 
            (!('darkMode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
   })
@@ -24,8 +23,8 @@ export default function App() {
   }, [darkMode])
 
   return (
-    <Router>
-      <div className={`min-h-screen ${darkMode ? 'dark' : ''}`}>
+    <div className={`min-h-screen ${darkMode ? 'dark' : ''}`}>
+      <Router>
         <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -33,8 +32,9 @@ export default function App() {
           <Route path="/projects" element={<Projects />} />
           <Route path="/experience" element={<Experience />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="*" element={<Home />} />
         </Routes>
-      </div>
-    </Router>
+      </Router>
+    </div>
   )
 }
