@@ -39,7 +39,7 @@ export default function Home() {
 
   const downloadResume = () => {
     const link = document.createElement('a')
-    link.href = '/offcampus-cse1.pdf'
+    link.href = '/Offcampus-CSE2.pdf'
     link.download = 'Nithin_Ravi_resume.pdf'
     document.body.appendChild(link)
     link.click()
