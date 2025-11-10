@@ -8,7 +8,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
 
   const downloadResume = () => {
     const link = document.createElement('a')
-    link.href = '/offcampus-cse1.pdf'
+    link.href = '/Offcampus-CSE2.pdf'
     link.download = 'Nithin-Ravi-resume.pdf'
     document.body.appendChild(link)
     link.click()
